@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.Assert.assertFalse;
+
 public class AssertionsExercises {
 
     private static List<Movie> movies;
@@ -69,7 +71,10 @@ public class AssertionsExercises {
 
     //    check if awarded movies collection contains only movies with one or more awards
     @Test
-    public void test1() {
+    public void shouldFindOnlyAwardedMoviesInCollection() {
+
+        assertFalse(awardedMovies.stream()
+                .anyMatch(movie -> movie.getAwards().isEmpty()));
     }
 
     //    check if Clint Eastwood movies won 3 awards
